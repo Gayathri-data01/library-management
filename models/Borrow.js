@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const borrowSchema = new mongoose.Schema({
-  userId: mongoose.Schema.Types.ObjectId,
-  bookId: mongoose.Schema.Types.ObjectId,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  bookId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Book"
+  },
   returned: {
     type: Boolean,
     default: false
